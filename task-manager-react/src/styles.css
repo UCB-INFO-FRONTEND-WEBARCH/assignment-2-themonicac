@@ -1,0 +1,304 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root, .page {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+/* page layout */
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* header */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dc4c3e;
+  color: #ffffff;
+  padding: 10px;
+  width: 100%;
+}
+
+.menu-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.search-container {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 5px 80px 5px 5px;
+  border-radius: 5px;
+}
+
+.search-icon {
+  margin-right: 6px;
+}
+
+.search-input {
+  border: none;
+  background: none;
+  color: #ffffff;
+  padding: 5px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #ffffff;
+}
+
+.site-header_status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+/* sidebar navbar */
+.site-main {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+.navbar {
+  width: 300px;
+  background-color: #fefbf2;
+  padding: 20px;
+  height: 100%;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #000000;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nav-item:hover {
+  background-color: #f3ede2;
+  border-radius: 6px;
+}
+
+.nav-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.nav-count {
+  font-size: 12px;
+  color: #7e7d79;
+  margin-left: auto;
+}
+
+.nav-item strong.active {
+  color: #dc4c3e;
+}
+
+/* main content area */
+.main-content {
+  flex: 1;
+  background-color: #ffffff;
+  min-width: 0;
+  color: #000000;
+  width: 100%;
+  height: 100%;
+}
+
+.main-content h1 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+/* filter buttons & summary */
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.filter-buttons button {
+  padding: 6px 14px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.filter-buttons button:hover {
+  background: #f6f6f6;
+}
+
+.filter-buttons button.active {
+  background: #dc4c3e;
+  color: white;
+  border-color: #dc4c3e;
+}
+
+.task-summary {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+/* task form */
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-form input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.task-form button {
+  background-color: #dc4c3e;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.task-form button:hover {
+  background-color: #b93e33;
+}
+
+/* task list */
+.main-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 0;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid #B7B7B7;
+  border-radius: 100px;
+  background-color: #FFFFFF;
+  appearance: none;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #228B22;
+  border-color: #228B22;
+}
+
+.main-list button {
+  margin-left: auto;
+  border: none;
+  background: none;
+  color: #888;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.main-list button:hover {
+  color: #dc4c3e;
+}
+
+.completed .task-text {
+  text-decoration: line-through;
+  color: #777;
+}
+
+/* responsive layout */
+@media (max-width: 480px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .search-container {
+    width: 90%;
+    margin-top: 8px;
+  }
+
+  .site-main {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 10px 15px;
+  }
+
+  .filter-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .task-form {
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px 0;
+  }
+
+  .task-form input,
+  .task-form button {
+    width: 100%;
+  }
+}
+
+#root {
+  max-width: 100% !important;
+  width: 100%;
+}
+
